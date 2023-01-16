@@ -1,11 +1,19 @@
 {
   "name": "rem-em-calc",
   "version": "1.0.0",
-  "description": "Simple tool for converting px to rem and em.",
-  "keywords": [],
+  "description": "A simple tool for converting px to rem and em.",
+  "keywords": ["rem", "em", "px", "convert", "calculate"],
   "author": "Dusan Brankov",
   "license": "MIT",
   "main": "index.html",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dusan-b/simple-rem-em-converter.git"
+  },
+  "bugs": {
+    "url": "https://github.com/dusan-b/simple-rem-em-converter/issues"
+  },
+  "homepage": "https://github.com/dusan-b/simple-rem-em-converter#readme",
   "browserslist": [
     "> 0.2% and not dead"
   ],
