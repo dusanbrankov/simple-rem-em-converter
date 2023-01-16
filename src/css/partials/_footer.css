@@ -20,7 +20,7 @@ body > footer {
 }
 
 .copyright {
-  font-family: monospace;
+  display: block;
   font-size: 0.75rem;
   color: var(--color-primary-4);
 }

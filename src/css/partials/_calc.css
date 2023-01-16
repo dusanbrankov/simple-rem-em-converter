@@ -113,17 +113,6 @@ input[type=number] {
   background-color: var(--color-primary-3);
 }
 
-.calc-result {
-  opacity: 0;
-  visibility: hidden;
-}
-
-.calc-result.show {
-  opacity: 1;
-  visibility: visible;
-  transition: opacity var(--transition);
-}
-
 .calc-btn {
   font-weight: 700;
   text-transform: uppercase;
@@ -148,17 +137,13 @@ input[type=number] {
 }
 
 .copy-btn {
-  display: flex;
+  display: none;
   width: 1.3125rem;
   height: auto;
-  opacity: 0;
-  visibility: hidden;
 }
 
 .copy-btn.show {
-  opacity: 1;
-  visibility: visible;
-  transition: opacity var(--transition);
+  display: flex;
 }
 
 .copy-btn svg {

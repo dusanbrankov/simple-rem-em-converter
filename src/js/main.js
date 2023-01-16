@@ -29,7 +29,6 @@ form.addEventListener("submit", event => {
     result.textContent = `${+parseFloat(px.value / basePx.value).toFixed(4)}rem`;
   }
 
-  result.classList.add("show");
   copyButton.classList.add("show");
 });
 
@@ -73,7 +72,6 @@ const clear = () => {
   baseRem.value = 1;
   px.value = "";
   result.textContent = "";
-  result.classList.remove("show");
   copyButton.classList.remove("show");
 }
 
