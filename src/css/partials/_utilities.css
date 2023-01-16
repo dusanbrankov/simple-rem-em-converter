@@ -1,0 +1,43 @@
+.visually-hidden {
+  position: absolute;
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 0;
+  border: 0;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+}
+
+.bare-list {
+  padding: 0;
+}
+
+/* BUG: Some screen readers don't announce unordered lists
+        when list-style-type is set to 'none' */
+
+.bare-list li {
+  list-style-type: none;
+}
+
+.bare-list li::before {
+  /* ↓ Add zero-width space, so parent '<ul>' is announced
+       with a role of 'list' again */
+  content: '\200B';
+
+  /* ↓ Prevent the added zero-width space from affecting
+       surrounding elements */
+  display: block;
+  height: 0;
+}
+
+[class*="v-space"] {
+  display: grid;
+}
+
+.v-space-lg {
+  gap: 1.5rem;
+}
+
+.v-space-sm {
+  gap: 0.375rem;
+}
