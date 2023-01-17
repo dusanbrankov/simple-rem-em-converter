@@ -54,15 +54,16 @@ pxToRemTab.addEventListener("click", () => {
 
 // Copy to clipboard
 
-const copy = require('clipboard-copy');
-
-copyButton.addEventListener('click', event => {
-  event.preventDefault();
-  copy(result.textContent);
-  copyMessage.classList.add("show");
-  setTimeout(() => {
-    copyMessage.classList.remove("show");
-  }, 3000);
+copyButton.addEventListener('click', async () => {
+  try {
+    await navigator.clipboard.writeText(result.textContent);
+    copyMessage.classList.add('show');
+    setTimeout(() => {
+      copyMessage.classList.remove('show');
+    }, 3000);
+  } catch (err) {
+    console.error(err.name, err.message);
+  }
 });
 
 // Function: Clear all fields
