@@ -1,6 +1,4 @@
 :root {
-  --font-stack: 'Helvetica', 'Arial', sans-serif;
-
   --color-primary-1: hsl(212, 13%, 32%);
   --color-primary-2: hsl(212, 13%, 29%);
   --color-primary-3: hsl(212, 13%, 37%);
@@ -8,13 +6,9 @@
   --color-primary-5: hsl(212, 13%, 65%);
   --color-primary-6: hsl(212, 13%, 80%);
   --color-accent-1: hsl(178, 40%, 43%);
-  --color-accent-2: hsl(35, 6%, 64%);
   --color-neutral-1: hsl(220, 15%, 18%);
   --color-neutral-2: hsl(220, 13%, 27%);
-  --color-neutral-3: hsl(0, 0%, 78%);
-
-  --calc-padding: 0.625rem;
-  --calc-width: 280px;
+  --color-neutral-3: hsl(0, 0%, 96%);
 
   --border-radius: 0.25rem;
 

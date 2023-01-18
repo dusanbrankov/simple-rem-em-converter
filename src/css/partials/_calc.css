@@ -34,7 +34,7 @@ input[type=number] {
   color: var(--color-primary-5);
 }
 
-.tab:is(:hover:not(.active), :focus-visible) {
+.tab:hover:not(.active) {
   color: inherit;
   transition: color var(--transition);
 }
@@ -47,13 +47,13 @@ input[type=number] {
   padding: 0.75em;
   border-radius: 0 0 var(--border-radius) var(--border-radius);
   background-color: var(--color-primary-1);
+  isolation: isolate;
 }
 
 .base-container {
   display: grid;
   grid-template-columns: 1fr 3.125rem;
   font-size: 0.875rem;
-  color: var(--color-neutral-3);
 }
 
 .base-input {
@@ -62,10 +62,6 @@ input[type=number] {
   border: 1px solid var(--color-primary-4);
   border-radius: 0 var(--border-radius) var(--border-radius) 0;
   background-color: var(--color-primary-2);
-}
-
-.base-input:focus {
-  box-shadow: none;
 }
 
 .base-label {
@@ -84,6 +80,60 @@ input[type=number] {
   display: grid;
 }
 
+.rm-prefix-container {
+  --checkbox-width: 1rem;
+  --checkbox-color: var(--color-neutral-3);
+  display: flex;
+  position: relative;
+  font-size: 0.875rem;
+}
+
+.rm-prefix-checkbox {
+  width: var(--checkbox-width);
+  aspect-ratio: 1;
+  opacity: 0;
+}
+
+.rm-prefix-checkbox:focus-visible + .rm-prefix-label::before {
+  border-color: var(--checkbox-color);
+}
+
+.rm-prefix-checkbox:checked + .rm-prefix-label::before {
+  border-color: var(--checkbox-color);
+  background-color: var(--checkbox-color);
+  background-clip: content-box;
+  transition:
+    border-color var(--transition),
+    background-color var(--transition);
+}
+
+.rm-prefix-label {
+  display: flex;
+  align-items: center;
+  line-height: 1;
+  padding-left: 6px;
+}
+
+.rm-prefix-label::before {
+  content: '';
+  display: inline-block;
+  position: absolute;
+  left: 0;
+  z-index: -1;
+  width: var(--checkbox-width);
+  aspect-ratio: 1;
+  padding: 2px;
+  border: 2px solid var(--color-primary-4);
+  border-radius: 0.125rem;
+  background-color: var(--color-primary-2);
+}
+
+.px-label {
+  display: block;
+  font-weight: 700;
+  margin-bottom: 3px;
+}
+
 .px-input {
   width: 100%;
   height: 2.5rem;
@@ -93,14 +143,12 @@ input[type=number] {
   background-color: var(--color-primary-2);
 }
 
-.px-input::placeholder {
-  color: var(--color-primary-5);
+.px-input:focus-visible {
+  box-shadow: inset 0 0 0 1px var(--color-neutral-3);
 }
 
-.px-label {
-  display: block;
-  font-weight: 700;
-  margin-bottom: 3px;
+.px-input::placeholder {
+  color: var(--color-primary-5);
 }
 
 .result-container {
@@ -127,13 +175,6 @@ input[type=number] {
 .calc-btn:hover {
   --color-accent-1: hsl(178, 40%, 48%);
   transition: background-color var(--transition);
-}
-
-.calc-btn:focus-visible {
-  outline: 2px solid var(--color-accent-1);
-  outline-offset: 3px;
-  border: 0;
-  box-shadow: none;
 }
 
 .copy-btn {
