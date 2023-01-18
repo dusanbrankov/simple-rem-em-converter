@@ -1,10 +1,6 @@
 # Simple rem/em Converter
 
-A simple and lightweight online tool to convert px to either rem or em.
-
-![](./img/screen-shot.png)
-
-## Description
+**A simple and lightweight online tool to convert px to either rem or em.**
 
 Probably the fastest way to convert px to rem is directly in your editor, using an appropriate plugin. However, it can be a little more difficult to convert a px value to the correct em value if the corresponding font size is not set to something that is easy to calculate, such as 1rem.
 
@@ -32,6 +28,8 @@ Let's say you have a font size in rem and a padding in px in your stylesheet.
 3. Enter the value of `padding` (12) in the main field.
 4. Click the 'convert' button or simply press enter on your keyboard.
 5. Copy the result and replace the value of `padding` in your stylesheet.
+
+![](./img/example.png)
 
 ---
 
