@@ -1,27 +1,24 @@
 # Simple rem/em Converter
 
-A simple and lightweight online tool for converting px either to rem or em.
+A simple and lightweight online tool to convert px to either rem or em.
 
 ![](./img/screen-shot.png)
 
----
+## Description
+
+Probably the fastest way to convert px to rem is directly in your editor, using an appropriate plugin. However, it can be a little more difficult to convert a px value to the correct em value if the corresponding font size is not set to something that is easy to calculate, such as 1rem.
+
+This is where this converter comes in handy, as it allows you to enter a base value for rem. It also has an option to show or hide leading zeros in the result, as well as a copy-to-clipboard button that copies the result along with the unit, ready to paste into your stylesheet.
+
+## Try it out
+
+To use the converter, visit the [Simple rem/em Converter](https://dusan-b.github.io/simple-rem-em-converter) website.
 
 ## Usage
 
-### Convert px to rem
-
-1. Enter a base px value (optional). The default value is `16px`.
-2. Enter a px value which you want to convert to rem.
-3. Click on the 'Convert' button or just hit enter to show the result.
-3. You can copy the result by clicking on the copy icon.
-
 ### Convert px to em
 
-The same as above with the additional option to define a base rem value. The default value is `1rem`.
-
-**Example:**
-
-Let's say you specified in your stylesheet a `font-size` in `rem`, and `padding` in `px`.
+Let's say you have a font size in rem and a padding in px in your stylesheet.
 
 ```css
 .example {
@@ -30,21 +27,13 @@ Let's say you specified in your stylesheet a `font-size` in `rem`, and `padding`
 }
 ```
 
-To convert the px value to em:
-
-1. Enter the number value of `font-size` (in this case 1.5) in the 'Base rem' field.
-2. Enter the number value of `padding` (in this case 12) in the main field.
-3. Click on the 'Convert' button and copy the result.
-4. Replace the value of `padding`.
-
-![](./img/example.png)
-
-## Try it out
-
-To use the converter, visit the [Simple rem/em Converter](https://dusan-b.github.io/simple-rem-em-converter) website.
+1. Change to the 'px to em' tab.
+2. Enter the value of `font-size` (1.5) in the 'base rem' field.
+3. Enter the value of `padding` (12) in the main field.
+4. Click the 'convert' button or simply press enter on your keyboard.
+5. Copy the result and replace the value of `padding` in your stylesheet.
 
 ---
 
-## License
-
+**License**<br>
 This project is licensed under the terms of the MIT license.
