@@ -181,10 +181,11 @@ input[type=number] {
   display: none;
   width: 1.3125rem;
   height: auto;
+  line-height: 0;
 }
 
 .copy-btn.show {
-  display: flex;
+  display: block;
 }
 
 .copy-btn svg {
