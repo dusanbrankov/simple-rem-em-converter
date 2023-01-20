@@ -24,7 +24,7 @@
     "> 0.2% and not dead"
   ],
   "scripts": {
-    "copy:html": "mkdir dist && cp -v ./src/index.html ./dist/index.html",
+    "copy:html": "cp -v ./src/index.html ./dist/index.html",
     "copy:js": "cp -Rv ./src/js ./dist",
     "copy:img": "cp -Rv ./src/img ./dist",
     "copy:fonts": "cp -Rv ./src/fonts ./dist",
