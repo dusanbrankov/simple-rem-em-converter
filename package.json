@@ -1,7 +1,7 @@
 {
   "name": "simple-rem-em-converter",
   "version": "1.0.0",
-  "description": "A simple online tool to convert px to rem and em.",
+  "description": "A simple online tool to convert px to rem or em.",
   "keywords": [
     "rem",
     "em",
