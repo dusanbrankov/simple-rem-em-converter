@@ -1,7 +1,7 @@
 {
   "name": "simple-rem-em-converter",
   "version": "1.0.0",
-  "description": "A simple tool for converting px to rem and em.",
+  "description": "A simple online tool to convert px to rem and em.",
   "keywords": [
     "rem",
     "em",
@@ -9,8 +9,6 @@
     "convert",
     "calculate"
   ],
-  "author": "Dusan Brankov",
-  "license": "MIT",
   "main": "index.html",
   "repository": {
     "type": "git",
@@ -20,17 +18,29 @@
     "url": "https://github.com/dusan-b/simple-rem-em-converter/issues"
   },
   "homepage": "https://dusan-b.github.io/simple-rem-em-converter",
+  "author": "Dusan Brankov",
+  "license": "MIT",
   "browserslist": [
     "> 0.2% and not dead"
   ],
   "scripts": {
-    "watch:cssimport": "postcss ./src/css/main.css --use postcss-import --output ./css/main.css --watch --no-map",
-    "watch:uglifyjs": "onchange './src/js/*.js' -- npx uglifyjs ./src/js/main.js -o ./js/main.js",
-    "build:uglifyjs": "uglifyjs ./src/js/main.js -o ./js/main.js",
-    "build:cssimport": "postcss ./src/css/main.css --use postcss-import --output ./css/main.css --no-map",
-    "build:postcss": "postcss ./css/main.css --use autoprefixer cssnano --replace --no-map",
+    "copy:html": "mkdir dist && cp -v ./src/index.html ./dist/index.html",
+    "copy:js": "cp -Rv ./src/js ./dist",
+    "copy:img": "cp -Rv ./src/img ./dist",
+    "copy:fonts": "cp -Rv ./src/fonts ./dist",
+
+    "watch:html": "onchange './src/index.html' -- npm run copy:html",
+    "watch:js": "onchange './src/js/main.js' -- npm run copy:js",
+    "watch:img": "onchange './src/img/**/*' -- npm run copy:img",
+    "watch:fonts": "onchange './src/fonts/**/*' -- npm run copy:fonts",
+    "watch:cssimport": "postcss ./src/css/main.css --use postcss-import --output ./dist/css/main.css --watch --no-map",
+
+    "build:uglifyjs": "uglifyjs ./src/js/main.js -o ./dist/js/main.js",
+    "build:cssimport": "postcss ./src/css/main.css --use postcss-import --output ./dist/css/main.css --no-map",
+    "build:postcss": "postcss ./dist/css/main.css --use autoprefixer cssnano --replace --no-map",
+
     "start": "npm-run-all --parallel watch:*",
-    "build": "npm-run-all build:uglifyjs build:cssimport build:postcss"
+    "build": "npm-run-all copy:* build:uglifyjs build:cssimport build:postcss"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.13",
