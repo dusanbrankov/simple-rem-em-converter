@@ -8,7 +8,7 @@
     "px",
     "convert",
     "calculate"
-  ],
+  ], 
   "main": "index.html",
   "repository": {
     "type": "git",
@@ -17,33 +17,34 @@
   "bugs": {
     "url": "https://github.com/dusan-b/simple-rem-em-converter/issues"
   },
-  "homepage": "https://dusan-b.github.io/simple-rem-em-converter",
-  "author": "Dusan Brankov",
+  "homepage": "https://dusanbrankov.github.io/simple-rem-em-converter/",
+  "author": "Dušan Brankov <dusanbrankov@proton.me>",
   "license": "MIT",
   "browserslist": [
-    "> 0.2% and not dead"
+    "last 2 versions",
+    "not dead",
+    "> 0.2%"
   ],
   "scripts": {
     "copy:html": "cp -v ./src/index.html ./dist/index.html",
     "copy:js": "cp -Rv ./src/js ./dist",
     "copy:img": "cp -Rv ./src/img ./dist",
     "copy:fonts": "cp -Rv ./src/fonts ./dist",
-
     "watch:html": "onchange './src/index.html' -- npm run copy:html",
     "watch:js": "onchange './src/js/main.js' -- npm run copy:js",
     "watch:img": "onchange './src/img/**/*' -- npm run copy:img",
     "watch:fonts": "onchange './src/fonts/**/*' -- npm run copy:fonts",
     "watch:cssimport": "postcss ./src/css/main.css --use postcss-import --output ./dist/css/main.css --watch --no-map",
-
+    "serve": "browser-sync start --server dist --files dist",
+    "start": "npm-run-all copy:* --parallel watch:* serve",
     "build:uglifyjs": "uglifyjs ./src/js/main.js -o ./dist/js/main.js",
     "build:cssimport": "postcss ./src/css/main.css --use postcss-import --output ./dist/css/main.css --no-map",
     "build:postcss": "postcss ./dist/css/main.css --use autoprefixer cssnano --replace --no-map",
-
-    "start": "npm-run-all --parallel watch:*",
     "build": "npm-run-all copy:* build:uglifyjs build:cssimport build:postcss"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.13",
+    "browser-sync": "^2.29.3",
     "cssnano": "^5.1.14",
     "npm-run-all": "^4.1.5",
     "onchange": "^7.1.0",
