@@ -15,7 +15,6 @@ rst="$(tput sgr0;)"
 # 2>>error_${date}.log
 
 build_command() {
-  [ -d "${dir}" ] && rm -rf "${dir}"
   mkdir -p "${dir}"
   npm run build
 }
