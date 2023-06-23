@@ -4,42 +4,40 @@ input::-webkit-inner-spin-button {
   margin: 0;
 }
 
-input[type=number] {
+input[type="number"] {
   -moz-appearance: textfield;
   appearance: textfield;
 }
 
-.tabs {
+[role="tablist"] {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 6px;
-  padding: 0;
 }
 
-.tab {
+[role="tab"] {
   font-size: 0.875rem;
   font-weight: 700;
   letter-spacing: 0.033em;
-  width: 100%;
   padding: 0.5em 1em;
   border-radius: var(--border-radius) var(--border-radius) 0 0;
   background-color: var(--color-neutral-06);
 
-  &.active {
+  &[aria-selected="true"] {
     background-color: var(--color-neutral-04);
   }
 
-  &:not(.active) {
+  &[aria-selected="false"] {
     color: var(--color-neutral-02);
   }
 
-  &:hover:not(.active) {
+  &[aria-selected="false"]:hover {
     color: inherit;
     transition: color var(--transition);
   }
 }
 
-.convert-form {
+[role="tabpanel"] {
   padding: 0.75em;
   border-radius: 0 0 var(--border-radius) var(--border-radius);
   background-color: var(--color-neutral-04);
@@ -187,7 +185,7 @@ input[type=number] {
   transition: background-color var(--transition);
 
   &:hover {
-    --color-primary: hsl(45, 40%, 70%);
+    --color-primary: hsl(45, 40%, 67%);
   }
 }
 
