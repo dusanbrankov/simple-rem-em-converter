@@ -28,10 +28,8 @@
   "scripts": {
     "copy:html": "cp -v ./src/index.html ./dist/index.html",
     "copy:js": "cp -Rv ./src/js ./dist",
-    "copy:img": "cp -Rv ./src/img ./dist",
     "watch:html": "onchange './src/index.html' -- npm run copy:html",
     "watch:js": "onchange './src/js/main.js' -- npm run copy:js",
-    "watch:img": "onchange './src/img/**/*' -- npm run copy:img",
     "watch:pcss": "postcss ./src/pcss/index.pcss --use postcss-import postcss-nested --output ./dist/css/style.css --watch --no-map",
     "bash:rm-dist": "test -d dist && rm -rf dist; mkdir -p dist",
     "serve": "browser-sync start --server dist --files dist",
