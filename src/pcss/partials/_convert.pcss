@@ -1,0 +1,217 @@
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+.tabs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+  padding: 0;
+}
+
+.tab {
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0.033em;
+  width: 100%;
+  padding: 0.5em 1em;
+  border-radius: var(--border-radius) var(--border-radius) 0 0;
+  background-color: var(--color-neutral-06);
+
+  &.active {
+    background-color: var(--color-neutral-04);
+  }
+
+  &:not(.active) {
+    color: var(--color-neutral-02);
+  }
+
+  &:hover:not(.active) {
+    color: inherit;
+    transition: color var(--transition);
+  }
+}
+
+.convert-form {
+  padding: 0.75em;
+  border-radius: 0 0 var(--border-radius) var(--border-radius);
+  background-color: var(--color-neutral-04);
+  isolation: isolate;
+}
+
+.base-value {
+  display: grid;
+  grid-template-columns: 1fr 3.125rem;
+  font-size: 0.875rem;
+
+  label {
+    padding: 0.25rem 0.5rem;
+    border: 1px solid var(--color-neutral-03);
+    border-right: 0;
+    border-radius: var(--border-radius) 0 0 var(--border-radius);
+  }
+
+  input {
+    text-align: center;
+    padding: 4px 0px;
+    border: 1px solid var(--color-neutral-03);
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    background-color: var(--color-neutral-05);
+  }
+
+  &.rem {
+    display: none;
+
+    &.show {
+      display: grid;
+    }
+  }
+}
+
+.option {
+  --checkbox-width: 1rem;
+  --checkbox-color: var(--color-neutral-01);
+  display: flex;
+  position: relative;
+  font-size: 0.875rem;
+
+  input[type='checkbox'] {
+    width: var(--checkbox-width);
+    aspect-ratio: 1;
+    opacity: 0;
+
+    &:focus-visible + label::before {
+      border-color: var(--checkbox-color);
+    }
+
+    &:checked + label::before {
+      border-color: var(--checkbox-color);
+      background-color: var(--checkbox-color);
+      background-clip: content-box;
+      transition:
+        border-color var(--transition),
+        background-color var(--transition);
+    }
+  }
+
+  label {
+    display: flex;
+    align-items: center;
+    line-height: 1;
+    padding-left: 6px;
+
+    &::before {
+      content: '';
+      display: inline-block;
+      position: absolute;
+      left: 0;
+      z-index: -1;
+      width: var(--checkbox-width);
+      aspect-ratio: 1;
+      padding: 2px;
+      border: 2px solid var(--color-neutral-03);
+      border-radius: 0.125rem;
+      background-color: var(--color-neutral-05);
+    }
+  }
+}
+
+.enter-px {
+  label {
+    display: block;
+    font-weight: 700;
+    margin-bottom: 3px;
+  }
+
+  input {
+    width: 100%;
+    height: 2.5rem;
+    padding-inline: 0.625rem;
+    border: 1px solid var(--color-neutral-03);
+    border-radius: var(--border-radius);
+    background-color: var(--color-neutral-05);
+
+    &:focus-visible {
+      box-shadow: inset 0 0 0 1px var(--color-neutral-01);
+    }
+
+    &::placeholder {
+      color: var(--color-neutral-02);
+    }
+  }
+}
+
+.result {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: 700;
+  height: 2.5rem;
+  padding-inline: 0.625rem;
+  border-radius: var(--border-radius);
+  background-color: var(--color-neutral-03);
+}
+
+.cp-button {
+  display: none;
+  width: 1.3125rem;
+  height: auto;
+  line-height: 0;
+
+  &.show {
+    display: block;
+  }
+
+  svg {
+    stroke: var(--color-neutral-01);
+  }
+}
+
+.convert-button {
+  font-weight: 700;
+  color: var(--color-neutral-07);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  padding: 1em;
+  border: 0;
+  border-radius: var(--border-radius);
+  background-color: var(--color-primary);
+  cursor: pointer;
+  transition: background-color var(--transition);
+
+  &:hover {
+    --color-primary: hsl(45, 40%, 70%);
+  }
+}
+
+.cp-message {
+  --trans: 150ms ease-out;
+  position: fixed;
+  left: 1.5rem;
+  bottom: 1.5rem;
+  font-size: 0.875rem;
+  padding: 1em;
+  border: 1px solid var(--color-primary);
+  border-radius: var(--border-radius);
+  background-color: var(--color-neutral-06);
+  transition:
+    visibility var(--trans),
+    opacity var(--trans),
+    transform var(--trans);
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(1rem);
+
+  &.show {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
