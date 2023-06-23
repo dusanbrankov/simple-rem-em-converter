@@ -16,7 +16,7 @@ rst="$(tput sgr0;)"
 
 build_command() {
   [ -d "${dir}" ] && rm -rf "${dir}"
-  mkdir -p ${dir}
+  mkdir -p "${dir}"
   npm run build
 }
 
@@ -24,10 +24,10 @@ check_err() {
   if [ $? -ne 0 ]; then
     echo "${red}An error has occured.${rst}" >&2
     exit 1
-  else
-    if [ -n "$1" ]; then
-      echo -e "${green}${*}${rst}\n"
-    fi
+  fi
+
+  if [ -n "$1" ]; then
+    echo -e "${green}${*}${rst}\n"
   fi
 }
 
@@ -38,20 +38,20 @@ if git status | grep "modified:" >/dev/null; then
   read -r input
   case $input in
     y|yes) echo -e "Continue running script...\n" ;;
-    *) exit 1
+    *) exit 1 ;;
   esac
 fi
 
 # Delete remote and local 'ghp_branch' if they exist
 if git branch -r | grep "${ghp_branch}" >/dev/null; then
   echo "${green}Deleting remote '${ghp_branch}' branch...${rst}"
-  git push origin --delete ${ghp_branch}
+  git push origin --delete "${ghp_branch}"
   check_err "Done."
 fi
 
-if git branch | grep ${ghp_branch} >/dev/null; then
+if git branch | grep "${ghp_branch}" >/dev/null; then
   echo "${green}Deleting local '${ghp_branch}' branch...${rst}"
-  if git worktree list | grep ${ghp_branch} >/dev/null; then
+  if git worktree list | grep "${ghp_branch}" >/dev/null; then
     git worktree remove -f "${dir}"
   fi
   git branch -D "${ghp_branch}"
@@ -59,7 +59,7 @@ if git branch | grep ${ghp_branch} >/dev/null; then
 fi
 
 # Delete old 'dir' folder if it exists
-if [ -d $dir ] ; then
+if [ -d "$dir" ] ; then
   echo "${green}Deleting old '${dir}/' folder...${rst}"
   rm -rfv "${dir}"
   check_err "Done."
