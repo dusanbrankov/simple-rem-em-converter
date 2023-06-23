@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# Usage: gh_deploy.sh
+# Usage: bash gh_deploy.sh
 
 dir="dist"
 def_branch="main"
@@ -34,11 +34,11 @@ check_err() {
 # Check if there are unstaged/uncommited changes
 if git status | grep "modified:" >/dev/null; then
   echo "${bold}Important note:${rst} There are unstaged/uncomitted changes on the '${def_branch}' branch. Running this script will discard these local changes."
-  echo "Do you want to continue? (y/N)"
+  printf "Do you want to continue? (y/N)"
   read -r input
   case $input in
     y|yes) echo -e "Continue running script...\n" ;;
-    *) echo "Exit script" ; exit 1
+    *) exit 1
   esac
 fi
 
