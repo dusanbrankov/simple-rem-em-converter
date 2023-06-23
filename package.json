@@ -37,8 +37,8 @@
     "serve": "browser-sync start --server dist --files dist",
     "start": "npm-run-all bash:rm-dist copy:* --parallel watch:* serve",
     "build:uglifyjs": "uglifyjs ./src/js/main.js -o ./dist/js/main.js",
-    "build:pcss-import": "postcss ./src/pcss/index.pcss --use postcss-import --output ./dist/css/style.css --no-map",
-    "build": "npm-run-all copy:* build:*",
+    "build:postcss": "postcss ./src/pcss/index.pcss --use postcss-import postcss-nested --output ./dist/css/style.css --no-map",
+    "build": "npm-run-all copy:* build:uglifyjs build:postcss",
     "postbuild": "postcss ./dist/css/style.css --use autoprefixer cssnano --replace --no-map"
   },
   "devDependencies": {
